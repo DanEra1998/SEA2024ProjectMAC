@@ -23,8 +23,10 @@
  * 
  */
 
-//repo on github will be super light weight, it looks like I have 
-// a folder, but its pointing to a submodule
+// Hello to whom reads this, I added a submodule which will allow anyone in the future to 
+// clone my repo and it will be "light weight." I know it looks like I downloaded an entire 
+// folder but I assure you, it is not. :)
+
 
 const FRESH_PRINCE_URL = "https://github.com/l3LlFF/flowers/blob/master/astilbe.jpg?raw=true"
 const CURB_POSTER_URL = "https://github.com/l3LlFF/flowers/blob/master/bellflower.jpg?raw=true";
@@ -36,6 +38,13 @@ let titles = [
     "Curb Your Enthusiasm",
     "East Los High"
 ];
+// creation of an array of object images which I iterate over
+const images = {
+    image0241: 'Flower-17-dataset/Bluebell/image_0241.jpg',
+    image0242: 'Flower-17-dataset/Bluebell/image_0242.jpg',
+    image0243: 'Flower-17-dataset/Bluebell/image_0243.jpg'
+    // ... add all other images in similar fashion
+  };
 // Your final submission should have much more data than this, and 
 // you should use more than just an array of strings to store it all.
 
@@ -45,25 +54,17 @@ function showCards() {
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = "";
     const templateCard = document.querySelector(".card");
-    
-    for (let i = 0; i < titles.length; i++) {
-        let title = titles[i];
-
-        // This part of the code doesn't scale very well! After you add your
-        // own data, you'll need to do something totally different here.
-        let imageURL = "";
-        if (i == 0) {
-            imageURL = FRESH_PRINCE_URL;
-        } else if (i == 1) {
-            imageURL = CURB_POSTER_URL;
-        } else if (i == 2) {
-            imageURL = EAST_LOS_HIGH_POSTER_URL;
-        }
-
-        const nextCard = templateCard.cloneNode(true); // Copy the template card
-        editCardContent(nextCard, title, imageURL); // Edit title and image
-        cardContainer.appendChild(nextCard); // Add new card to the container
-    }
+   
+      
+      const imageContainer = document.getElementById('card-container');
+      
+      for (const [key, value] of Object.entries(images)) {
+        const img = document.createElement('img');
+        img.src = value; // Set the source of the image to the value
+        img.alt = key; // Use the key as the alt text for the image
+        img.classList.add('image-size');
+        imageContainer.appendChild(img); // Append the image to the container
+      }
 }
 
 function editCardContent(card, newTitle, newImageURL) {
@@ -94,3 +95,4 @@ function removeLastCard() {
     titles.pop(); // Remove last item in titles array
     showCards(); // Call showCards again to refresh
 }
+
