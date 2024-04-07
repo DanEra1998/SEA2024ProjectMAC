@@ -21,30 +21,40 @@
  *    browser and observe what happens. You should see a fourth "card" appear
  *    with the string you added to the array, but a broken image.
  * 
- */
+*/
 
-// Hello to whom reads this, I added a submodule which will allow anyone in the future to 
-// clone my repo and it will be "light weight." I know it looks like I downloaded an entire 
-// folder but I assure you, it is not. :)
+/* 
+  Hello to whom reads this, I added a submodule which will allow anyone in the future to 
+  clone my repo and it will be "light weight." I know it looks like I downloaded an entire 
+  folder but I assure you, it is not. :)
+*/
 
+/* 
+  per the README page, we are to show our understanding of basic data structures 
+  and objects. 
+  A couple data structures that I might use include arrays
+  - arrays, vectors, A map? A stack? A queue? 
+*/ 
 
-const FRESH_PRINCE_URL = "https://github.com/l3LlFF/flowers/blob/master/astilbe.jpg?raw=true"
-const CURB_POSTER_URL = "https://github.com/l3LlFF/flowers/blob/master/bellflower.jpg?raw=true";
-const EAST_LOS_HIGH_POSTER_URL = "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
+// My first data structure, An array of objects
 
-// This is an array of strings (TV show titles)
-let titles = [
-    "Fresh Prince of Bel Air",
-    "Curb Your Enthusiasm",
-    "East Los High"
+const images = [
+{
+  path: 'Flower-17-dataset/Bluebell/image_0242.jpg',
+  description: 'BlueBell'
+}, 
+{
+  path: 'Flower-17-dataset/Bluebell/image_0265.jpg',
+  description: 'BlueBell2' 
+},
+{
+  path: 'Flower-17-dataset/Bluebell/image_0249.jpg',
+  description: 'BlueBell3'
+}
 ];
-// creation of an array of object images which I iterate over
-const images = {
-    image0241: 'Flower-17-dataset/Bluebell/image_0241.jpg',
-    image0242: 'Flower-17-dataset/Bluebell/image_0242.jpg',
-    image0243: 'Flower-17-dataset/Bluebell/image_0243.jpg'
-    // ... add all other images in similar fashion
-  };
+
+// other data structures can be a map, vector
+
 // Your final submission should have much more data than this, and 
 // you should use more than just an array of strings to store it all.
 
@@ -58,30 +68,41 @@ function showCards() {
       
       const imageContainer = document.getElementById('card-container');
       
-      for (const [key, value] of Object.entries(images)) {
-        const img = document.createElement('img');
-        img.src = value; // Set the source of the image to the value
-        img.alt = key; // Use the key as the alt text for the image
-        img.classList.add('image-size');
-        imageContainer.appendChild(img); // Append the image to the container
-      }
+   
+      // one of the best things is the for each loop, since 
+      // i dont have to find a index, i can just loop over the 
+      // entire object array
+      images.forEach(detail => {
+        const nextCard = templateCard.cloneNode(true); // Copy the template card
+        editCardContent(nextCard, detail.path, detail.description); // Edit title and image
+        cardContainer.appendChild(nextCard); // Add new card to the container
+      });
+     
 }
-
-function editCardContent(card, newTitle, newImageURL) {
+/* 
+  I am altering this functions to provide a deciption of the image
+  I will also change this function to print out the image
+*/
+function editCardContent(card, img_Path, img_Description) {
     card.style.display = "block";
 
     const cardHeader = card.querySelector("h2");
-    cardHeader.textContent = newTitle;
+    cardHeader.textContent = img_Description;
 
     const cardImage = card.querySelector("img");
-    cardImage.src = newImageURL;
-    cardImage.alt = newTitle + " Poster";
+    cardImage.src = img_Path;
+    
+    cardImage.alt = img_Description;
 
+   
     // You can use console.log to help you debug!
     // View the output by right clicking on your website,
     // select "Inspect", then click on the "Console" tab
-    console.log("new card:", newTitle, "- html: ", card);
+   // console.log("new card:", img_Description, "- html: ", img_Path);
 }
+
+
+
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
