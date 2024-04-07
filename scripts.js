@@ -23,9 +23,11 @@
  * 
  */
 
+//repo on github will be super light weight, it looks like I have 
+// a folder, but its pointing to a submodule
 
-const FRESH_PRINCE_URL = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
-const CURB_POSTER_URL = "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
+const FRESH_PRINCE_URL = "https://github.com/l3LlFF/flowers/blob/master/astilbe.jpg?raw=true"
+const CURB_POSTER_URL = "https://github.com/l3LlFF/flowers/blob/master/bellflower.jpg?raw=true";
 const EAST_LOS_HIGH_POSTER_URL = "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
 
 // This is an array of strings (TV show titles)
