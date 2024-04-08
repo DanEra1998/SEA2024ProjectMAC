@@ -13,7 +13,7 @@ body {
 .title {
     text-align: center;
     margin: 0;
-    font-size: 8em;
+    font-size: 3em;
     font-family: "Helvetica";
     font-weight: normal;
     color: white;
@@ -76,3 +76,14 @@ button {
     margin: 5px;
 }
 
+.flower-section {
+    text-align: center; /* Center the label */
+    margin-bottom: 20px; /* Space between sections */
+    background-color: black;
+  }
+  
+  .flower-label {
+    margin-bottom: 10px; /* Space between label and cards */
+    /* Add more styling for the label here */
+  }
+  

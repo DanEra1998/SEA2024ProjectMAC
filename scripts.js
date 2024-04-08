@@ -36,41 +36,41 @@
   - arrays, vectors, A map? A stack? A queue? 
 */ 
 
-// My first data structure, An array of objects
+/*
+My first data structure, An array of objects. My original idea was an array that contains path files and a decscription. 
+This gets the job done but copy and pasting the same string over and over and changing it slighlty implicitly means 
+I can create a helper function to do this.
+*/
 
+// The following is a function that helps me generate images. 
+function imageGenerator(imagePath, imagedescription, starting_Index, end_Index){
+  // creating of array that will contain these objects, initially empty 
+  // For future Daniel, naming the array inside this function as the outside array
+  // may confuse you!
+  const images = [];
+  // As a beginner in javascript, this is neat, I did not know that arrays in java are versatile which means they can 
+  // be used as stack. In this case, I am not using it as a stack. but it can be used as a stack 
+  for(let i = starting_Index; i < end_Index - 1; i++){
+    // here we add the funtionality to add to the end of 
+    const appendedNumber = i.toString().padStart(4,'0');
+    images.push({
+      path: `${imagePath}${appendedNumber}.jpg`,
+      description: imagedescription
+    });
+  }  
+  return images; 
+}
+
+// now we call the functions above
+// previously, I was hardcoding this but my friend who tutored me a while back told me
+// when you start copy and pasting and changing a few parts of the string, it usually 
+// means a for loop. Refer to the bottom of the js file to see my original code 
 const images = [
-{
-  path: 'Flower-17-dataset/Bluebell/image_0242.jpg',
-  description: 'BlueBell'
-}, 
-{
-  path: 'Flower-17-dataset/Bluebell/image_0265.jpg',
-  description: 'BlueBell2' 
-},
-{
-  path: 'Flower-17-dataset/Bluebell/image_0249.jpg',
-  description: 'BlueBell3'
-},
-{
-  path: 'Flower-17-dataset/Buttercup/image_1121.jpg',
-  description: 'Butter cup'
-},
-{
-  path: 'Flower-17-dataset/Buttercup/image_1122.jpg',
-  description: 'Butter cup'
-}
-,
-{
-  path: 'Flower-17-dataset/Buttercup/image_1123.jpg',
-  description: 'Butter cup'
-}
-,
-{
-  path: 'Flower-17-dataset/Daisy/image_0801.jpg',
-  description: 'Butter cup'
-}
-
-
+  ...imageGenerator('Flower-17-dataset/Bluebell/image_', 'BlueBell', 242, 246),
+  ...imageGenerator('Flower-17-dataset/Buttercup/image_', 'Buttercup', 1121, 1125),
+  ...imageGenerator('Flower-17-dataset/Daisy/image_', 'Daisy', 809, 813),
+  ...imageGenerator('Flower-17-dataset/Iris/image_', 'iris', 401, 405),
+  ...imageGenerator('Flower-17-dataset/Crocus/image_', 'crocus', 321, 325),
 ];
 
 // other data structures can be a map, vector
@@ -133,7 +133,42 @@ function quoteAlert() {
 }
 
 function removeLastCard() {
-    titles.pop(); // Remove last item in titles array
+    images.pop(); // Remove last item in titles array
     showCards(); // Call showCards again to refresh
 }
 
+
+/*
+this was my original idea, I kept it in the code to show the differnce in my 
+process when starting this project and my final code. 
+*/
+// {
+//   path: 'Flower-17-dataset/Bluebell/image_0242.jpg',
+//   description: 'BlueBell'
+// }, 
+// {
+//   path: 'Flower-17-dataset/Bluebell/image_0265.jpg',
+//   description: 'BlueBell2' 
+// },
+// {
+//   path: 'Flower-17-dataset/Bluebell/image_0249.jpg',
+//   description: 'BlueBell3'
+// },
+// {
+//   path: 'Flower-17-dataset/Buttercup/image_1121.jpg',
+//   description: 'Butter cup'
+// },
+// {
+//   path: 'Flower-17-dataset/Buttercup/image_1122.jpg',
+//   description: 'Butter cup'
+// }
+// ,
+// {
+//   path: 'Flower-17-dataset/Buttercup/image_1123.jpg',
+//   description: 'Butter cup'
+// }
+// ,
+// {
+//   path: 'Flower-17-dataset/Daisy/image_0801.jpg',
+//   description: 'Butter cup'
+// }
