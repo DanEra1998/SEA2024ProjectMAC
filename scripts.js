@@ -50,7 +50,27 @@ const images = [
 {
   path: 'Flower-17-dataset/Bluebell/image_0249.jpg',
   description: 'BlueBell3'
+},
+{
+  path: 'Flower-17-dataset/Buttercup/image_1121.jpg',
+  description: 'Butter cup'
+},
+{
+  path: 'Flower-17-dataset/Buttercup/image_1122.jpg',
+  description: 'Butter cup'
 }
+,
+{
+  path: 'Flower-17-dataset/Buttercup/image_1123.jpg',
+  description: 'Butter cup'
+}
+,
+{
+  path: 'Flower-17-dataset/Daisy/image_0801.jpg',
+  description: 'Butter cup'
+}
+
+
 ];
 
 // other data structures can be a map, vector
