@@ -21,7 +21,7 @@ body {
     margin-top: 50px;
     margin: 0;
     font-size: 3em;
-    font-family: "lobster";
+    
     font-weight: lighter;
     /*color attribute belongs to the font */
     color: black;
@@ -54,6 +54,7 @@ body {
     font-size: 20px;
     /* change font to something better */
     /*font-family: "lobster";*/
+    font-family: "Lato";
     color: #000000;
 }
 
@@ -92,6 +93,7 @@ button {
 #sortButton{
     height: 50px;
     width: 100px;
+    font-family: "Lato";
     border: 3px solid #74127f; 
     background-color: rgba(179, 71, 163, 0.3);
     color: black;
@@ -103,24 +105,29 @@ button {
 
 .main-text{
     background-color: rgb(9, 133, 59, .3);
+    padding: 10px;
     margin-top: 20px;
     font-size: 15px;
     border: 5px solid rgb(9, 133, 59) ;
+    font-family: "Lato";
     border-radius: 40px;
     color: black;
     font-weight: lighter;
+    font-family: "Lato";
 }
 #shuffleButton{
     height: 50px;
     width: 100px;
     border: 3px solid #74127f; 
     background-color: rgba(179, 71, 163, 0.3);
+    font-family: "Lato";
     color: black;
 }
 #refreshButton{
     height: 50px;
     width: 100px;
     border: 3px solid #74127f; 
+    font-family: "Lato";
     background-color: rgba(179, 71, 163, 0.3);
     color: black;
 }
@@ -129,6 +136,7 @@ button {
     width: 100px;
     border: 3px solid #74127f; 
     background-color: rgba(179, 71, 163, 0.3);
+    font-family: "Lato";
     color: black;
 }
 #popCardButton{
@@ -143,5 +151,6 @@ button {
     width: 100px;
     border: 3px solid #74127f; 
     background-color: rgba(179, 71, 163, 0.3);
+    font-family: "Lato";
     color: black;
 }

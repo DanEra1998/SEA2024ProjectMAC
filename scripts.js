@@ -55,8 +55,6 @@ I can create a helper function to do this.
 //                       GLOBAL VARIABLES 
 //*********************************************************************************/
 let isSorted = true; 
-
-
 //*********************************************************************************/
 //                  FUNCTION THAT USED DATASET TO GENERATE IMAGES 
 //*********************************************************************************/
@@ -74,16 +72,11 @@ function imageGenerator(FlowerPath, imagedescription, starting_Index, end_Index,
     flowerDataSet.push({
       path: `${FlowerPath}${appendedNumber}.jpg`,
       description: imagedescription[i - starting_Index],
-      bullets: bulletsArray || [i - starting_Index]
+      bullets: bulletsArray
     });
   }  
   return flowerDataSet; 
 }
-
-
-
-
-
 //*********************************************************************************/
 //        ARRAY OF FUNCTION CALLS TO POPULATE MY WEBSISTE
 //*********************************************************************************/
