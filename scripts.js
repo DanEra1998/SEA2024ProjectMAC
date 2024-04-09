@@ -251,9 +251,10 @@ function positiveQuotes() {
 
 function cycleCard() {
   if (flowerDataSet.length > 0) {
-      const firstCard = flowerDataSet.shift(); // Remove the first item and store it
-      flowerDataSet.push(firstCard); // Add the stored item to the end of the array
-      showCards(); // Refresh the display of cards
+      const firstCard = flowerDataSet.shift(); 
+      // cycling card requring a push of the card 
+      flowerDataSet.push(firstCard); 
+      showCards(); 
   } else {
       console.log("No cards available to move.");
   } // Remove last item in titles array

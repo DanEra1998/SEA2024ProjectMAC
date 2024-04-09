@@ -42,8 +42,8 @@ body {
     box-shadow: 0 2px 4px rgb(0, 0, 0);
 
     background-color:rgba(105, 29, 140, 0.3);
-    flex-basis: calc(25% - 20px); /* Adjusting for margin, replace 20px with your actual margin */
-    margin: 15px; /* Adjust based on your design */
+    flex-basis: calc(25% - 20px); 
+    margin: 15px; 
     padding: 5px;
     display: none; 
 
