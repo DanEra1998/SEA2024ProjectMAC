@@ -87,11 +87,15 @@ function imageGenerator(imagePath, imagedescription, starting_Index, end_Index){
 //        ARRAY OF FUNCTION CALLS TO POPULATE MY WEBSISTE
 //*********************************************************************************/
 const images = [
-  ...imageGenerator('Flower-17-dataset/Bluebell/image_', ['A', 'B', 'C'], 242, 246),
+  ...imageGenerator('Flower-17-dataset/Bluebell/image_', ['A', 'B', 'C'], 250, 254),
   ...imageGenerator('Flower-17-dataset/Buttercup/image_', 'zaButtercup', 1121, 1125),
   ...imageGenerator('Flower-17-dataset/Daisy/image_', 'Daisy', 809, 813),
   ...imageGenerator('Flower-17-dataset/Iris/image_', 'iris', 401, 405),
   ...imageGenerator('Flower-17-dataset/Crocus/image_', 'crocus', 321, 325),
+  ...imageGenerator('Flower-17-dataset/Sunflower/image_', 'crocus', 748, 752),
+  ...imageGenerator('Flower-17-dataset/Snowdrop/image_', 'crocus', 81, 85),
+  ...imageGenerator('Flower-17-dataset/Pansy/image_', 'crocus', 1285, 1289),
+  ...imageGenerator('Flower-17-dataset/Dandelalion/image_', 'crocus', 961, 965),
 ];
 
 // other data structures can be a map, vector
