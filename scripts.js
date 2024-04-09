@@ -225,15 +225,18 @@ document.addEventListener("DOMContentLoaded", () => {
 //*****************************************************************************/
 //        MY SECOND DATA STRUCTURE: A STACK USING LIFO THAT CONTAINS OBJECTS 
 //*****************************************************************************/
-let quoteStack = [
-  {quote: "Nothing is impossible, the word itself says ‘I’m possible’", author: "Audrey Hepburn"},
-  {quote: "Each day comes bearing its gift. Untie the ribbon", author: "Ann Ruth Schabacker"},
-  {quote: "The most important thing is to try and inspire people so that they can be great in whatever they want to do.", author: "Kobe Bryant"},
-  {quote: "Happiness is not by chance but by choice.", author: "Jim Rohn"},
-  {quote: "Optimism is a happiness magnet. If you stay positive good things and good people will be drawn to you. ", author: "Mary Lou Retton"},
-  {quote: "Setting goals is the first step in turning the invisible into the visible", author: "Tony Robbins"},
-  {quote: "You’ll never do a whole lot unless you’re brave enough to try.", author: "Dolly Parton"},
-];
+let quoteStack = [];
+
+// use of stack data structure
+quoteStack.push({quote: "Nothing is impossible, the word itself says ‘I’m possible’", author: "Audrey Hepburn"});
+quoteStack.push({quote: "Each day comes bearing its gift. Untie the ribbon", author: "Ann Ruth Schabacker"});
+quoteStack.push( {quote: "The most important thing is to try and inspire people so that they can be great in whatever they want to do.", author: "Kobe Bryant"});
+quoteStack.push({quote: "Happiness is not by chance but by choice.", author: "Jim Rohn"});
+quoteStack.push({quote: "Optimism is a happiness magnet. If you stay positive good things and good people will be drawn to you. ", author: "Mary Lou Retton"});
+quoteStack.push({quote: "Setting goals is the first step in turning the invisible into the visible", author: "Tony Robbins"});
+quoteStack.push({quote: "You’ll never do a whole lot unless you’re brave enough to try.", author: "Dolly Parton"});
+
+
 // quotes source: 
 //https://www.southernliving.com/positive-thinking-quotes-7255842
 
