@@ -22,18 +22,27 @@
  *    with the string you added to the array, but a broken image.
  * 
 */
+//*********************************************************************************/
+//                              MY CODE STARTS HERE
+//*********************************************************************************/
+
 
 /* 
-  Hello to whom reads this, I added a submodule which will allow anyone in the future to 
-  clone my repo and it will be "light weight." I know it looks like I downloaded an entire 
-  folder but I assure you, it is not. :)
+Hello to whom reads this, I added a submodule which will allow anyone in the future to 
+clone my repo and it will be "light weight." I know it looks like I downloaded an entire 
+folder but I assure you, it is not. :)
+*/
+
+/*
+The difference between const, let, var 
+https://community.appsmith.com/content/guide/variables-javascript-comprehensive-guide-var-let-and-const#:~:text=Use%20var%20for%20function%2Dlevel,constant%20within%20a%20block%20scope.
 */
 
 /* 
-  per the README page, we are to show our understanding of basic data structures 
-  and objects. 
-  A couple data structures that I might use include arrays
-  - arrays, vectors, A map? A stack? A queue? 
+per the README page, we are to show our understanding of basic data structures 
+and objects. 
+A couple data structures that I might use include arrays
+- arrays, vectors, A map? A stack? A queue? 
 */ 
 
 /*
@@ -42,11 +51,20 @@ This gets the job done but copy and pasting the same string over and over and ch
 I can create a helper function to do this.
 */
 
+//*********************************************************************************/
+//                       GLOBAL VARIABLES 
+//*********************************************************************************/
+let isSorted = true; 
+
+
+//*********************************************************************************/
+//                  FUNCTION THAT USED DATASET TO GENERATE IMAGES 
+//*********************************************************************************/
+
 // The following is a function that helps me generate images. 
 function imageGenerator(imagePath, imagedescription, starting_Index, end_Index){
   // creating of array that will contain these objects, initially empty 
-  // For future Daniel, naming the array inside this function as the outside array
-  // may confuse you!
+
   const images = [];
   // As a beginner in javascript, this is neat, I did not know that arrays in java are versatile which means they can 
   // be used as stack. In this case, I am not using it as a stack. but it can be used as a stack 
@@ -55,19 +73,22 @@ function imageGenerator(imagePath, imagedescription, starting_Index, end_Index){
     const appendedNumber = i.toString().padStart(4,'0');
     images.push({
       path: `${imagePath}${appendedNumber}.jpg`,
-      description: imagedescription
+      description: imagedescription[i - starting_Index]
     });
   }  
   return images; 
 }
 
-// now we call the functions above
-// previously, I was hardcoding this but my friend who tutored me a while back told me
-// when you start copy and pasting and changing a few parts of the string, it usually 
-// means a for loop. Refer to the bottom of the js file to see my original code 
+
+
+
+
+//*********************************************************************************/
+//        ARRAY OF FUNCTION CALLS TO POPULATE MY WEBSISTE
+//*********************************************************************************/
 const images = [
-  ...imageGenerator('Flower-17-dataset/Bluebell/image_', 'BlueBell', 242, 246),
-  ...imageGenerator('Flower-17-dataset/Buttercup/image_', 'Buttercup', 1121, 1125),
+  ...imageGenerator('Flower-17-dataset/Bluebell/image_', ['A', 'B', 'C'], 242, 246),
+  ...imageGenerator('Flower-17-dataset/Buttercup/image_', 'zaButtercup', 1121, 1125),
   ...imageGenerator('Flower-17-dataset/Daisy/image_', 'Daisy', 809, 813),
   ...imageGenerator('Flower-17-dataset/Iris/image_', 'iris', 401, 405),
   ...imageGenerator('Flower-17-dataset/Crocus/image_', 'crocus', 321, 325),
@@ -102,6 +123,7 @@ function showCards() {
 /* 
   I am altering this functions to provide a deciption of the image
   I will also change this function to print out the image
+  NOTE to future self, you may change this function or add a function create card
 */
 function editCardContent(card, img_Path, img_Description) {
     card.style.display = "block";
@@ -121,11 +143,46 @@ function editCardContent(card, img_Path, img_Description) {
    // console.log("new card:", img_Description, "- html: ", img_Path);
 }
 
+/* 
+I am not sure if Javascript runs on top down design but Im assuming that it does. I would need to create the cards before 
+I sort them so I will create the sort function here 
+*/
+function flowerSort(){
+  // I will sort the images lexicographically
+  
+  images.sort((a,b) => {
+    // lets create two variables ... 
+    const card_A = a.description.toUpperCase(); 
+    const card_B = b.description.toUpperCase();
+    if (card_A < card_B){
+      return isSorted ? -1 : 1;
+    }
+    if(card_B < card_A){
+      return isSorted ? 1 : -1;
+    }
+    return 0; 
+  });
 
+  isSorted != isSorted;
+  showCards(); 
 
+  // when clicking sort again, it should resort the state. 
+
+}
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
+
+// We will need to add an event listener for clicking the sort button
+
+document.addEventListener('DOMContentLoaded', () => {
+  const sortButton = document.getElementById('sortButton');
+  sortButton.addEventListener('click', flowerSort);
+  
+  // Initial display of cards
+  showCards();
+});
+
 
 function quoteAlert() {
     console.log("Button Clicked!")
