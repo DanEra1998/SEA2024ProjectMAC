@@ -124,3 +124,24 @@ button {
     background-color: rgba(179, 71, 163, 0.3);
     color: black;
 }
+#smileButton{
+    height: 50px;
+    width: 100px;
+    border: 3px solid #74127f; 
+    background-color: rgba(179, 71, 163, 0.3);
+    color: black;
+}
+#popCardButton{
+    height: 50px;
+    width: 100px;
+    border: 3px solid #74127f; 
+    background-color: rgba(179, 71, 163, 0.3);
+    color: black;
+}
+#cycleButton{
+    height: 50px;
+    width: 100px;
+    border: 3px solid #74127f; 
+    background-color: rgba(179, 71, 163, 0.3);
+    color: black;
+}

@@ -68,7 +68,7 @@ function imageGenerator(FlowerPath, imagedescription, starting_Index, end_Index,
   const flowerDataSet = [];
   // As a beginner in javascript, this is neat, I did not know that arrays in java are versatile which means they can 
   // be used as stack. In this case, I am not using it as a stack. but it can be used as a stack 
-  for(let i = starting_Index; i < end_Index - 1; i++){
+  for(let i = starting_Index; i < end_Index - 1;i++){
     // here we add the funtionality to add to the end of 
     const appendedNumber = i.toString().padStart(4,'0');
     flowerDataSet.push({
@@ -92,7 +92,7 @@ function imageGenerator(FlowerPath, imagedescription, starting_Index, end_Index,
 // are populated. 
 // the empty bracket parameter, the filed bracket parameters and above this code, the OR statment which defaults a empty arrays 
 const flowerDataSet = [
-  ...imageGenerator('Flower-17-dataset/Bluebell/image_', ['A) BlueBell 1', 'B) BlueBell 2', 'C) BlueBell 3'], 250, 254, [["each picture represents a different perspective of the flower, this does not work, or does it ", "jsjjsjs", ["kkksksks"]], "djf;alksdjfalksdf sadďds", "ajsdflkajsdf;lksajfklsdjf;klsadjf;salkdj "]),
+  ...imageGenerator('Flower-17-dataset/Bluebell/image_', ['A) BlueBell 1', 'B) BlueBell 2', 'C) BlueBell 3'], 250, 254, []),
   ...imageGenerator('Flower-17-dataset/Buttercup/image_', ['D) Buttercup 1', 'E) Buttercup 2', 'F) Buttercup 3'], 1121, 1125, []),
   ...imageGenerator('Flower-17-dataset/Daisy/image_', ['G) Daisy 1', 'H) Daisy 2', 'I) Daisy 3'], 809, 813, []),
   ...imageGenerator('Flower-17-dataset/Iris/image_', ['J) Iris 1', 'K) Iris 2', 'L) Iris 3'], 401, 405, []),
@@ -101,8 +101,13 @@ const flowerDataSet = [
   ...imageGenerator('Flower-17-dataset/Snowdrop/image_', ['S) Snowdrop 1', 'T) Snowdrop 2', 'U) Snowdrop 3'], 81, 85, []),
   ...imageGenerator('Flower-17-dataset/Pansy/image_', ['V) Pansy 1', 'W) Pansy 2', 'X) Pansy 3'], 1285, 1289,[]),
   ...imageGenerator('Flower-17-dataset/Dandelalion/image_', ['Z) Sunflower 1', 'AB) Sunflower 2', 'AC) Sunflower 3'], 961, 965,[]),
-];
+  ...imageGenerator('Flower-17-dataset/Colts Foot/image_', ['AD) Colts Foot 1', 'AE) Colts Foot 2', 'AF) Colts Foot 3'], 881, 885,[]),
+  ...imageGenerator('Flower-17-dataset/Daffodil/image_', ['AG) Daffodil 1', 'AH) Daffodil 2', 'AI) Daffodil 3'], 30, 34,[]),
+  ...imageGenerator('Flower-17-dataset/Windflower/image_', ['AJ) Windflower 1', 'AK) Windflower 2', 'AL) Windflower 3'], 1201, 1205,[]),
 
+
+];
+//[["each picture represents a different perspective of the flower "]]
 // other data structures can be a map, vector
 
 // Your final submission should have much more data than this, and 
@@ -218,21 +223,48 @@ document.addEventListener("DOMContentLoaded", () => {
     location.reload(); 
   });
 
-
+  const cycleButton = document.getElementById('cycleButton');
+  cycleButton.addEventListener('click', cycleCard);
 
   showCards();
 });
 
+//*****************************************************************************/
+//        MY SECOND DATA STRUCTURE: A STACK USING LIFO THAT CONTAINS OBJECTS 
+//*****************************************************************************/
+let quoteStack = [
+  {quote: "Nothing is impossible, the word itself says ‘I’m possible’", author: "Audrey Hepburn"},
+  {quote: "Each day comes bearing its gift. Untie the ribbon", author: "Ann Ruth Schabacker"},
+  {quote: "The most important thing is to try and inspire people so that they can be great in whatever they want to do.", author: "Kobe Bryant"},
+  {quote: "Happiness is not by chance but by choice.", author: "Jim Rohn"},
+  {quote: "Optimism is a happiness magnet. If you stay positive good things and good people will be drawn to you. ", author: "Mary Lou Retton"},
+  {quote: "Setting goals is the first step in turning the invisible into the visible", author: "Tony Robbins"},
+  {quote: "You’ll never do a whole lot unless you’re brave enough to try.", author: "Dolly Parton"},
+];
+// quotes source: 
+//https://www.southernliving.com/positive-thinking-quotes-7255842
 
-
-function quoteAlert() {
-   
-    alert("I guess I can kiss heaven goodbye, because it got to be a sin to look this good!");
+function positiveQuotes() {
+   if(quoteStack.length == 0){
+    alert("We are out of Quotes, I bet I made you smile?");
+    return;
+   }
+   let selectedObj = quoteStack.pop(); 
+    alert(`"${selectedObj.quote}" - ${selectedObj.author}`);
 }
+//********************************************************************************/
+//       END OF MY SECOND DATA STRUCTURE: A STACK USING LIFO THAT CONTAINS OBJECTS 
+//********************************************************************************/
 
-function removeLastCard() {
-    flowerDataSet.pop(); // Remove last item in titles array
-    showCards(); // Call showCards again to refresh
+function cycleCard() {
+  if (flowerDataSet.length > 0) {
+      const firstCard = flowerDataSet.shift(); // Remove the first item and store it
+      flowerDataSet.push(firstCard); // Add the stored item to the end of the array
+      showCards(); // Refresh the display of cards
+  } else {
+      console.log("No cards available to move.");
+  } // Remove last item in titles array
+    //showCards(); // Call showCards again to refresh
 }
 
 
