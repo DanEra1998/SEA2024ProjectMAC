@@ -62,21 +62,22 @@ let isSorted = true;
 //*********************************************************************************/
 
 // The following is a function that helps me generate images. 
-function imageGenerator(imagePath, imagedescription, starting_Index, end_Index){
+function imageGenerator(FlowerPath, imagedescription, starting_Index, end_Index, bulletsArray){
   // creating of array that will contain these objects, initially empty 
-
-  const images = [];
+  // ***** THE ARRAY THAT WILL CONTAIN IMAGES FROM DATASET
+  const flowerDataSet = [];
   // As a beginner in javascript, this is neat, I did not know that arrays in java are versatile which means they can 
   // be used as stack. In this case, I am not using it as a stack. but it can be used as a stack 
   for(let i = starting_Index; i < end_Index - 1; i++){
     // here we add the funtionality to add to the end of 
     const appendedNumber = i.toString().padStart(4,'0');
-    images.push({
-      path: `${imagePath}${appendedNumber}.jpg`,
-      description: imagedescription[i - starting_Index]
+    flowerDataSet.push({
+      path: `${FlowerPath}${appendedNumber}.jpg`,
+      description: imagedescription[i - starting_Index],
+      bullets: bulletsArray || [i - starting_Index]
     });
   }  
-  return images; 
+  return flowerDataSet; 
 }
 
 
@@ -86,16 +87,20 @@ function imageGenerator(imagePath, imagedescription, starting_Index, end_Index){
 //*********************************************************************************/
 //        ARRAY OF FUNCTION CALLS TO POPULATE MY WEBSISTE
 //*********************************************************************************/
-const images = [
-  ...imageGenerator('Flower-17-dataset/Bluebell/image_', ['A', 'B', 'C'], 250, 254),
-  ...imageGenerator('Flower-17-dataset/Buttercup/image_', 'zaButtercup', 1121, 1125),
-  ...imageGenerator('Flower-17-dataset/Daisy/image_', 'Daisy', 809, 813),
-  ...imageGenerator('Flower-17-dataset/Iris/image_', 'iris', 401, 405),
-  ...imageGenerator('Flower-17-dataset/Crocus/image_', 'crocus', 321, 325),
-  ...imageGenerator('Flower-17-dataset/Sunflower/image_', 'crocus', 748, 752),
-  ...imageGenerator('Flower-17-dataset/Snowdrop/image_', 'crocus', 81, 85),
-  ...imageGenerator('Flower-17-dataset/Pansy/image_', 'crocus', 1285, 1289),
-  ...imageGenerator('Flower-17-dataset/Dandelalion/image_', 'crocus', 961, 965),
+// Note: the bullet points dont work, I can not figure out how to get them to be difrerent on each cards 
+// right now I have three ways to ensure the the images 
+// are populated. 
+// the empty bracket parameter, the filed bracket parameters and above this code, the OR statment which defaults a empty arrays 
+const flowerDataSet = [
+  ...imageGenerator('Flower-17-dataset/Bluebell/image_', ['A) BlueBell 1', 'B) BlueBell 2', 'C) BlueBell 3'], 250, 254, [["each picture represents a different perspective of the flower, this does not work, or does it ", "jsjjsjs", ["kkksksks"]], "djf;alksdjfalksdf sadďds", "ajsdflkajsdf;lksajfklsdjf;klsadjf;salkdj "]),
+  ...imageGenerator('Flower-17-dataset/Buttercup/image_', ['D) Buttercup 1', 'E) Buttercup 2', 'F) Buttercup 3'], 1121, 1125, []),
+  ...imageGenerator('Flower-17-dataset/Daisy/image_', ['G) Daisy 1', 'H) Daisy 2', 'I) Daisy 3'], 809, 813, []),
+  ...imageGenerator('Flower-17-dataset/Iris/image_', ['J) Iris 1', 'K) Iris 2', 'L) Iris 3'], 401, 405, []),
+  ...imageGenerator('Flower-17-dataset/Crocus/image_', ['M) Crocus 1', 'N) Crocus 2', 'O) Crocus 3'], 321, 325,[]),
+  ...imageGenerator('Flower-17-dataset/Sunflower/image_', ['P) Sunflower 1', 'Q) Sunflower 2', 'R) Sunflower 3'], 748, 752,[]),
+  ...imageGenerator('Flower-17-dataset/Snowdrop/image_', ['S) Snowdrop 1', 'T) Snowdrop 2', 'U) Snowdrop 3'], 81, 85, []),
+  ...imageGenerator('Flower-17-dataset/Pansy/image_', ['V) Pansy 1', 'W) Pansy 2', 'X) Pansy 3'], 1285, 1289,[]),
+  ...imageGenerator('Flower-17-dataset/Dandelalion/image_', ['Z) Sunflower 1', 'AB) Sunflower 2', 'AC) Sunflower 3'], 961, 965,[]),
 ];
 
 // other data structures can be a map, vector
@@ -117,9 +122,9 @@ function showCards() {
       // one of the best things is the for each loop, since 
       // i dont have to find a index, i can just loop over the 
       // entire object array
-      images.forEach(detail => {
+      flowerDataSet.forEach(detail => {
         const nextCard = templateCard.cloneNode(true); // Copy the template card
-        editCardContent(nextCard, detail.path, detail.description); // Edit title and image
+        editCardContent(nextCard, detail.path, detail.description, detail.bullets); // Edit title and image
         cardContainer.appendChild(nextCard); // Add new card to the container
       });
      
@@ -129,7 +134,7 @@ function showCards() {
   I will also change this function to print out the image
   NOTE to future self, you may change this function or add a function create card
 */
-function editCardContent(card, img_Path, img_Description) {
+function editCardContent(card, img_Path, img_Description, bulletPoints) {
     card.style.display = "block";
 
     const cardHeader = card.querySelector("h2");
@@ -140,6 +145,16 @@ function editCardContent(card, img_Path, img_Description) {
     
     cardImage.alt = img_Description;
 
+    const bulletList = card.querySelector("ul");
+    // this did not do anything i.e adding the .src. I can not figure out why i get duplicated bullet points s
+    bulletList.src = bulletPoints;
+    bulletList.innerHTML = '';
+  
+    bulletPoints.forEach(point => {
+      const li = document.createElement("li");
+      li.textContent = point;
+      bulletList.appendChild(li); // Append to bulletList, not bulletPoints
+    });
    
     // You can use console.log to help you debug!
     // View the output by right clicking on your website,
@@ -154,7 +169,7 @@ I sort them so I will create the sort function here
 function flowerSort(){
   // I will sort the images lexicographically
   
-  images.sort((a,b) => {
+  flowerDataSet.sort((a,b) => {
     // lets create two variables ... 
     const card_A = a.description.toUpperCase(); 
     const card_B = b.description.toUpperCase();
@@ -194,21 +209,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const shuffleButton = document.getElementById('shuffleButton');
   shuffleButton.addEventListener('click', ()=>{
-    shuffleFlowers(images);
+    shuffleFlowers(flowerDataSet);
     showCards(); 
-  })
+  });
+
+  const refreshButton = document.getElementById('refreshButton');
+  refreshButton.addEventListener('click', function(){
+    location.reload(); 
+  });
+
+
+
   showCards();
 });
 
 
 
 function quoteAlert() {
-    console.log("Button Clicked!")
+   
     alert("I guess I can kiss heaven goodbye, because it got to be a sin to look this good!");
 }
 
 function removeLastCard() {
-    images.pop(); // Remove last item in titles array
+    flowerDataSet.pop(); // Remove last item in titles array
     showCards(); // Call showCards again to refresh
 }
 

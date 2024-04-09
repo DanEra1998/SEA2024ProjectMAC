@@ -17,17 +17,26 @@
         
     </header>
     <!-- I forgot that in order to shuffle components around, we need to surround them by a div -->
-    <div class = sortButtonContainer>
+    <div class = ButtonContainer>
         <div class = main-text>
             <h2>Welcome to Pixelated Peace! A digital Zen Garden! Have you ever taken the time to look 
                 at different types of flowers from different persepectives? Well now you can!
             </h2>
         </div>
         <button id = "sortButton">
-            sort
+            Sort
         </button>
         <button id = "shuffleButton">
             Shuffle
+        </button>
+        <button id = "refreshButton">
+            Refresh
+        </button>
+        <button onclick="quoteAlert();">
+            Get A Quote!
+        </button>
+        <button onclick="removeLastCard();">
+            Remove A Card!
         </button>
         
     </div>
@@ -38,21 +47,15 @@
     <div class="card" style="display: none;">
         <div class="card-content">
             <h2>Relax</h2>
-            <img src="" alt="TV Show Poster">
+            <img src="" alt="">
             <ul>
-                <li>Bullet Point 1</li>
-                <li>Bullet Point 2</li>
-                <li>Bullet Point 3</li>
+            
+    
             </ul>
         </div>
     </div>
     <div class="footer">
-        <button onclick="quoteAlert();">
-            Get A Quote!
-        </button>
-        <button onclick="removeLastCard();">
-            Remove A Card!
-        </button>
+    
         
     </div>
 </body>
