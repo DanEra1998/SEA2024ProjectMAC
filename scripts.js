@@ -93,7 +93,7 @@ const flowerDataSet = [
   ...imageGenerator('Flower-17-dataset/Sunflower/image_', ['P) Sunflower 1', 'Q) Sunflower 2', 'R) Sunflower 3'], 748, 752,[]),
   ...imageGenerator('Flower-17-dataset/Snowdrop/image_', ['S) Snowdrop 1', 'T) Snowdrop 2', 'U) Snowdrop 3'], 81, 85, []),
   ...imageGenerator('Flower-17-dataset/Pansy/image_', ['V) Pansy 1', 'W) Pansy 2', 'X) Pansy 3'], 1285, 1289,[]),
-  ...imageGenerator('Flower-17-dataset/Dandelalion/image_', ['Z) Sunflower 1', 'AB) Sunflower 2', 'AC) Sunflower 3'], 961, 965,[]),
+  ...imageGenerator('Flower-17-dataset/Dandelalion/image_', ['Z) Dandelalion 1', 'AB) Dandelalion 2', 'AC) Dandelalion 3'], 961, 965,[]),
   ...imageGenerator('Flower-17-dataset/Colts Foot/image_', ['AD) Colts Foot 1', 'AE) Colts Foot 2', 'AF) Colts Foot 3'], 881, 885,[]),
   ...imageGenerator('Flower-17-dataset/Daffodil/image_', ['AG) Daffodil 1', 'AH) Daffodil 2', 'AI) Daffodil 3'], 30, 34,[]),
   ...imageGenerator('Flower-17-dataset/Windflower/image_', ['AJ) Windflower 1', 'AK) Windflower 2', 'AL) Windflower 3'], 1201, 1205,[]),
