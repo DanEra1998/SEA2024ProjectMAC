@@ -174,18 +174,32 @@ function flowerSort(){
 
 }
 
+function shuffleFlowers(array){
+  for(let i = array.length - 1; i > 0; i--){
+    // since we want to shuffle, we want to call the random fucntion
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]]; 
+  }
+}
+
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
 
 // We will need to add an event listener for clicking the sort button
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+
   const sortButton = document.getElementById('sortButton');
   sortButton.addEventListener('click', flowerSort);
-  
-  // Initial display of cards
+
+  const shuffleButton = document.getElementById('shuffleButton');
+  shuffleButton.addEventListener('click', ()=>{
+    shuffleFlowers(images);
+    showCards(); 
+  })
   showCards();
 });
+
 
 
 function quoteAlert() {
