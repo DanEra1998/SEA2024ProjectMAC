@@ -5,6 +5,9 @@
     <title>Pixelated Peace</title>
     <meta name="description" content="A Catalog of Shows Set in Los Angeles">
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script type="text/javascript" src="scripts.js"></script>
 </head>
 
@@ -13,9 +16,18 @@
         <h1 class="title">Pixelated Peace</h1>
         
     </header>
-    <button id = "sortButton">
-        sort
-    </button>
+    <!-- I forgot that in order to shuffle components around, we need to surround them by a div -->
+    <div class = sortButtonContainer>
+        <div class = main-text>
+            <h2>Welcome to Pixelated Peace! A digital Zen Garden! Have you ever taken the time to look 
+                at different types of flowers from different persepectives? Well now you can!
+            </h2>
+        </div>
+        <button id = "sortButton">
+            sort
+        </button>
+    </div>
+   
     <div id="card-container">
         
     </div>

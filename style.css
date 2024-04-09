@@ -2,7 +2,8 @@ html,
 body {
     margin: 10px;
     padding: 0;
-   
+    background-color: rgb(9, 150, 59, 0.1);
+    
 
 }
 
@@ -20,9 +21,11 @@ body {
     margin-top: 50px;
     margin: 0;
     font-size: 3em;
-    font-family: "Helvetica";
-    font-weight: normal;
-    color: white;
+    font-family: "lobster";
+    font-weight: lighter;
+    /*color attribute belongs to the font */
+    color: black;
+    
 }
 
 #card-container {
@@ -47,8 +50,9 @@ body {
 
 .card-content {
     padding: 20px;
-    font-family: "Verdana";
-    color: #777;
+    font-size: 20px;
+    font-family: "lobster";
+    color: #000000;
 }
 
 .card-content h2 {
@@ -83,8 +87,23 @@ button {
 }
 /* Okay now I know what the hashtag does vs the . the . is for classed and the the hashtag is for id's*/
 #sortButton{
-    
-    flex: right; 
-    background-color: #74127f;
+    height: 50px;
+    width: 100px;
+    border: 5px solid #74127f; 
+    background-color: rgba(179, 71, 163, 0.3);
+    color: black;
 }
-  
+
+.sortButtonContainer{
+    text-align: center;
+}
+
+.main-text{
+    background-color: rgb(9, 133, 59, .3);
+    margin-top: 20px;
+    font-size: 15px;
+    border: 5px solid rgb(9, 133, 59) ;
+    border-radius: 40px;
+    color: black;
+    font-weight: lighter;
+}
